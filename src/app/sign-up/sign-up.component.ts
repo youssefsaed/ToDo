@@ -11,6 +11,8 @@ import { AuthService } from '../auth.service';
 })
 export class SignUpComponent {
   errorMessage: string = ''
+  cpassword: any
+  password: any
 
   constructor(private _AuthService: AuthService, private _Router: Router) { }
   SignUpForms = new FormGroup({
@@ -23,7 +25,6 @@ export class SignUpComponent {
   })
 
   SendData(SignUpForms: FormGroup) {
-    console.log(SignUpForms);
     this._AuthService.sendRegister(SignUpForms.value).subscribe((res) => {
       console.log(res);
       if (res.message == 'success') {
@@ -36,7 +37,5 @@ export class SignUpComponent {
   }
 
 
-
- 
 }
 

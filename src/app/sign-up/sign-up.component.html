@@ -20,24 +20,22 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <input  formControlName="password" type="password" class="form-control p-2 mb-3"
-                        placeholder="Password">
+                    <input [(ngModel)]="password" formControlName="password" type="password"
+                        class="form-control p-2 mb-3" placeholder="Password">
                     <div *ngIf="SignUpForms.get('password')?.errors && SignUpForms.get('password')?.touched">
                         <p *ngIf="SignUpForms.get('password')?.getError('required')">password is required</p>
                         <p *ngIf="SignUpForms.get('password')?.getError('pattern')">Invalid password</p>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <input  formControlName="confirmPassword" type="password" class="form-control p-2 mb-3"
-                        placeholder="confirm Password">
-                    <div
-                        *ngIf="SignUpForms.get('confirmPassword')?.errors && SignUpForms.get('confirmPassword')?.touched">
+                    <input [(ngModel)]="cpassword" formControlName="confirmPassword" type="password"
+                        class="form-control p-2 mb-3" placeholder="confirm Password">
+                    <div *ngIf="SignUpForms.get('confirmPassword')?.touched&&password!=cpassword">
                         <p *ngIf="SignUpForms.get('confirmPassword')?.getError('required')">confirm Password is required
                         </p>
-                        <p *ngIf="SignUpForms.get('password')?.value!=SignUpForms.get('confirmPassword')?.value">confirm password not match</p>
-                        
-                        
+                        <p *ngIf="password!=cpassword">confirm password not match</p>
                     </div>
+
                 </div>
                 <div class="col-md-12">
                     <input formControlName="age" type="number" class="form-control p-2 mb-3" placeholder="age">
@@ -47,6 +45,7 @@
                         <p *ngIf="SignUpForms.get('age')?.getError('max')">Maximum 90</p>
                     </div>
                 </div>
+
                 <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
                     <button [disabled]="SignUpForms.status=='INVALID'" type="submit"
                         class=" px-5 py-2 border bg-transparent text-white rounded-pill mb-3">SignUp</button>
@@ -55,7 +54,7 @@
                     </div>
                 </div>
 
-
+               
             </div>
 
         </form>
