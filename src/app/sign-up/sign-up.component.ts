@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
-import { passwordMatch } from 'src/validators/passwordMatch';
 import { AuthService } from '../auth.service';
 
 
@@ -21,7 +20,7 @@ export class SignUpComponent {
     confirmPassword: new FormControl(null, [Validators.required]),
     age: new FormControl(null, [Validators.required, Validators.min(10), Validators.max(90)])
 
-  },[passwordMatch('password','confirmPassword')])
+  })
 
   SendData(SignUpForms: FormGroup) {
     console.log(SignUpForms);

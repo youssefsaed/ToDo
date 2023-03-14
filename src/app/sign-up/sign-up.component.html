@@ -34,7 +34,7 @@
                         *ngIf="SignUpForms.get('confirmPassword')?.errors && SignUpForms.get('confirmPassword')?.touched">
                         <p *ngIf="SignUpForms.get('confirmPassword')?.getError('required')">confirm Password is required
                         </p>
-                        <p *ngIf="SignUpForms.errors?.['matchError'] && SignUpForms.get('confirmPassword')?.touched">confirm password not match</p>
+                        <p *ngIf="SignUpForms.get('password')?.value!=SignUpForms.get('confirmPassword')?.value">confirm password not match</p>
                         
                         
                     </div>
