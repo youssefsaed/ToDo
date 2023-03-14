@@ -20,20 +20,21 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <input [(ngModel)]="password" formControlName="password" type="password"
-                        class="form-control p-2 mb-3" placeholder="Password">
+                    <input formControlName="password" type="password" class="form-control p-2 mb-3"
+                        placeholder="Password">
                     <div *ngIf="SignUpForms.get('password')?.errors && SignUpForms.get('password')?.touched">
                         <p *ngIf="SignUpForms.get('password')?.getError('required')">password is required</p>
                         <p *ngIf="SignUpForms.get('password')?.getError('pattern')">Invalid password</p>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <input [(ngModel)]="cpassword" formControlName="confirmPassword" type="password"
-                        class="form-control p-2 mb-3" placeholder="confirm Password">
-                    <div *ngIf="SignUpForms.get('confirmPassword')?.touched&&password!=cpassword">
+                    <input formControlName="confirmPassword" type="password" class="form-control p-2 mb-3"
+                        placeholder="confirm Password">
+                    <div *ngIf="SignUpForms.get('confirmPassword')?.touched">
                         <p *ngIf="SignUpForms.get('confirmPassword')?.getError('required')">confirm Password is required
                         </p>
-                        <p *ngIf="password!=cpassword">confirm password not match</p>
+                        <p *ngIf="SignUpForms.get('password')?.value!=SignUpForms.get('confirmPassword')?.value">confirm
+                            password not match</p>
                     </div>
 
                 </div>
@@ -54,7 +55,7 @@
                     </div>
                 </div>
 
-               
+
             </div>
 
         </form>
