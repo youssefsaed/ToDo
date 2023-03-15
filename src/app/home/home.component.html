@@ -1,8 +1,9 @@
 <section>
     <div class="container p-5  ">
-      
-          <div class="dropdown user">
-            <button class="btn bg-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+        <div class="dropdown user">
+            <button class="btn bg-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 <i class="fa-solid fa-user"></i>
             </button>
             <ul class="dropdown-menu">
@@ -10,7 +11,7 @@
                 <hr>
                 <li><a class="dropdown-item" (click)="logOut()">log out</a></li>
             </ul>
-          </div>
+        </div>
 
 
 
@@ -102,15 +103,21 @@
                 </div>
                 <div class="d-flex  justify-content-start flex-column flex-wrap">
                     <div class="text-center h2">update</div>
-                    <div *ngIf="emailUpdate" class="alert-error p-2 text-center">{{emailUpdate}}</div>
-                    <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)" >
-                        <input [(ngModel)]="nameUp" formControlName="name" class="form-control rounded-2 mt-3" type="text" placeholder="name">
-                        <input [(ngModel)]="emailUp" formControlName="email" class="form-control rounded-2 my-3" type="text" placeholder="email">
-                        <input [(ngModel)]="ageUp" formControlName="age" class="form-control rounded-2 mb-3" type="text" placeholder="age">
-                        <input [(ngModel)]="passwordUp" formControlName="password" class="form-control rounded-2 mb-3" type="text" placeholder="password">
+                    <div *ngIf="updateError" class="alert-error p-2 text-center">{{updateError}}</div>
+                    <form [formGroup]="userForm" (ngSubmit)="updateUser(userForm)">
+                        <input [(ngModel)]="nameUp" formControlName="name" class="form-control rounded-2 mt-3"
+                            type="text" placeholder="name">
+                        <input [(ngModel)]="emailUp" formControlName="email" class="form-control rounded-2 my-3"
+                            type="text" placeholder="email">
+                        <input [(ngModel)]="ageUp" formControlName="age" class="form-control rounded-2 mb-3" type="text"
+                            placeholder="age">
+                        <input [(ngModel)]="passwordUp" formControlName="password" class="form-control rounded-2 mb-3"
+                            type="text" placeholder="password">
                     </form>
-                    <button (click)="updateUser(userForm)" type="button" class="bg-update mb-2 mx-2 p-3 rounded-3">update</button>
-                    <button (click)="deleteUser()" type="button" class="bg-delete p-3 rounded-3 mx-2 mb-2" data-bs-dismiss="modal">delete your
+                    <button (click)="updateUser(userForm)" type="button"
+                        class="bg-update mb-2 mx-2 p-3 rounded-3">update</button>
+                    <button (click)="deleteUser()" type="button" class="bg-delete p-3 rounded-3 mx-2 mb-2"
+                        data-bs-dismiss="modal">delete your
                         email</button>
 
                 </div>

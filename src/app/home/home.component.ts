@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   name: string = ''
   email: string = ''
   age: number = 0
-  emailUpdate: string = ''
+  updateError: string = ''
   nameUp: string = ''
   emailUp: string = ''
   ageUp: string = ''
@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
 
       }
       else if (res.message == "email is exist change your email") {
-        this.emailUpdate = res.message
+        this.updateError = res.message
       }
     })
   }
