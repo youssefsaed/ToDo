@@ -43,23 +43,7 @@ export const deleteTodo = async (req, res) => {
 }
 
 
-export const searchByTitle = async (req, res) => {
-    try {
-        const { word } = req.query
-        const {id}=req.user
-        const todo = await todoModel.find({
-            createdBy: id,
-            title: {
-                $regex: `^${word}`
-            }
-        })
-        if (!todo.length) return res.json({ message: "not found try again" })
-        return res.json({ message: "success", todo })
-    } catch (error) {
-        console.log(error);
-        res.json({ message: "CathError" })
-    }
-}
+
 
 export const getToDoWithUser = async (req, res) => {
     try {

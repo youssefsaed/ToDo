@@ -51,21 +51,6 @@ export class TodoService  {
     })
   }
   
-  
-
-  searchByTitle(word: string, token: string | null): Observable<any> {
-    return this.http.get(`/App/toDo/searchByTitle?word=${word}`, {
-      headers:
-      {
-        'authorization': `kjki__${token}`,
-        'Content-Type': 'application/json'
-      }
-    })
-  }
-
-
-
-
 
 }
 

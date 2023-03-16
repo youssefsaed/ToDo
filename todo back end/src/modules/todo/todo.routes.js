@@ -8,7 +8,6 @@ const router=Router()
 router.post('/addTodo',validation(addTodoSchema),Auth(),todo_Controller.addTodo)
 router.put('/updateTodo',validation(updateTodoSchema),Auth(),todo_Controller.updateTodo)
 router.delete('/deleteTodo',validation(deleteTodoSchema),Auth(),todo_Controller.deleteTodo)
-router.get('/searchByTitle',validation(searchByTitleSchema),Auth(),todo_Controller.searchByTitle)
 router.get('/getToDoWithUser',Auth(),todo_Controller.getToDoWithUser)
 router.delete('/clearTodo',Auth(),todo_Controller.clearTodo)
 
