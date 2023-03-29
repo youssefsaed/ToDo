@@ -4,7 +4,7 @@ export const signUpSchema = {
     body: Joi.object().required().keys({
         name: Joi.string().required().alphanum().min(3).max(15),
         email: Joi.string().email().required(),
-        password: Joi.string().required().pattern(new RegExp('^[a-z0-9]{5,40}$')),
+        password: Joi.string().required().pattern(new RegExp('^[a-zA-Z0-9]{5,40}$')),
         confirmPassword: Joi.string().valid(Joi.ref('password')).required(),
         age: Joi.number().min(10).max(90)
     })
